@@ -1132,6 +1132,80 @@ const provinceLnglat = [
 
 ];
 
+
+
+const provinceData = [
+  { region_name: '北京', sn_num: 97462 },
+
+  { region_name: '上海', sn_num: 63211 },
+
+  { region_name: '天津', sn_num: 9862 },
+
+  { region_name: '重庆', sn_num: 123212},
+
+  { region_name: '河北', sn_num: 5432},
+
+  { region_name: '山西', sn_num:321411 },
+
+  { region_name: '辽宁', sn_num:7657 },
+
+  { region_name: '吉林', sn_num: 9877},
+
+  { region_name: '黑龙江', sn_num: 1221},
+
+  { region_name: '浙江', sn_num:22323 },
+
+  { region_name: '福建', sn_num: 66564 },
+
+  { region_name: '山东', sn_num: 43443 },
+
+  { region_name: '河南', sn_num:66667},
+
+  { region_name: '湖北', sn_num: 8786},
+
+  { region_name: '湖南', sn_num: 66555 },
+
+  { region_name: '广东', sn_num: 89786 },
+
+  { region_name: '海南', sn_num:9988},
+
+  { region_name: '四川', sn_num: 43322 },
+
+  { region_name: '贵州', sn_num: 212112 },
+
+  { region_name: '云南', sn_num:2242 },
+
+  { region_name: '江西', sn_num:34433},
+
+  { region_name: '陕西', sn_num:2322},
+
+  { region_name: '青海', sn_num: 88888 },
+
+  { region_name: '甘肃', sn_num:55555 },
+
+  { region_name: '广西', sn_num:43211 },
+
+  { region_name: '新疆', sn_num: 33233 },
+
+  { region_name: '内蒙古', sn_num:323232},
+
+  { region_name: '西藏', sn_num: 1111},
+
+  { region_name: '宁夏', sn_num: 22321 },
+
+  { region_name: '台湾', sn_num: 76543},
+
+  { region_name: '港澳', sn_num:334 },
+  // { region_name: '香港', sn_num: ['114.139452', '22.391577'] },
+
+  // { region_name: '澳门', sn_num: ['113.5678411', '22.167654'] },
+
+  { region_name: '安徽', sn_num:43343 },
+
+  { region_name: '江苏', sn_num: 66545}
+
+];
+
 const manageMemberImageList = [
   {
     url: require('../assets/image/member1.png')
@@ -1261,6 +1335,7 @@ export default {
   spreadSensorList,
   // 省市经纬度
   provinceLnglat,
+  provinceData,
   manageMemberImageList,
   plantMemberImageList,
   machineImageList,

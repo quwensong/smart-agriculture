@@ -140,6 +140,11 @@ export default {
           return `background-image:url(${bgUrl})`;
         } else {
           let bgUrl = landImageUrl || bgImage;
+          console.log("🚀 ~ file: FarmStockSurvey.vue ~ line 143 ~ contentBgStyle ~ bgUrl", bgUrl)
+          bgUrl = '@/assets/image/农场01.png'
+          console.log("🚀 ~ file: FarmStockSurvey.vue ~ line 148 ~ contentBgStyle ~ `background-image:url(${bgUrl})`", `background-image:url(${bgUrl})`)
+
+          // let bgUrl = 'https://n-tianchi-oss.oss-cn-qingdao.aliyuncs.com/farm/8efba3db-2cac-4673-b694-ac3a8b2725a3.jpg?Expires=4756889252&OSSAccessKeyId=LTAI4Fn1GBn1T9Qk1K7wSHRP&Signature=Y2L%2Fpj1YBsEwCHzVl9A1xRoJnJg%3D'
           return `background-image:url(${bgUrl})`;
         }
       }

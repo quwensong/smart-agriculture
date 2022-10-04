@@ -1,7 +1,7 @@
 import qs from 'querystring';
 import _ from 'lodash';
 import service from './config';
-import * as allData from '../data/farm/index'
+import * as allData from '../data/index'
 
 // 农场基本信息
 export const getFarmById = (id) => {
@@ -13,8 +13,8 @@ export const getFarmList = (params) => {
       return item !== '' && item !== undefined;
   }));
   // return service.get(`/v1/farm/list?${paramsStr}`);
-  return allData.getFarmListData
-};
+  return Promise.resolve(allData.getFarmListData)
+}
 
 
 
@@ -375,7 +375,8 @@ export const getGoodsListByFarmId = (params) => {
   let paramsStr = qs.stringify(_.pickBy(params, (item) => {
     return item !== '' && item !== undefined;
   }));
-  return service.get(`/v1/goods/pageByShop?${paramsStr}`);
+  // return service.get(`/v1/goods/pageByShop?${paramsStr}`);
+  return Promise.resolve(service.getGoodsListByFarmIdData)
 };
 
 // 获取商品详情接口

@@ -111,7 +111,12 @@ export default {
       let {id} = this.$route.params;
       this.$service.getGoodsListByFarmId({farmId: id, pageSize: 100000, disabled: 1, marketEnable: 1})
         .then((res) => {
+          console.log(res);
+          res = {
+            code:0
+          }
           if (res && res.code === 0) {
+            console.log(res)
             let goodsList = this.$_.get(res, 'data.list') || [];
             let asides = goodsList.length > 0 ? this.asides : this.asides2;
             let asideList = asides.map((aside) => {

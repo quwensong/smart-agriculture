@@ -64,6 +64,7 @@ export default {
         // this.districtCluster.setData([]);
 
         let res = await this.$service.getFarmList({pageSize: 100});
+        console.log("🚀 ~ file: FarmMap.vue ~ line 67 ~ mapInit ~ res", res)
         if (res && res.code === 0) {
           let dataList = res.data.list.map(item => {
             return {
@@ -225,7 +226,7 @@ export default {
       }
     },
     resetPosition() {
-      this.map.setCenter([126.55, 43.83]);
+      this.map.setCenter([106.63, 26.65]);
       this.map.setZoom(6);
     },
     zoomOut() {

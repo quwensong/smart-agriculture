@@ -268,7 +268,33 @@ export default {
       return this.production20Years.valueList;
     },
     aDayInGuizhouActiveData() {
-      return _.get(this.aDayInGuizhou, `${this.aDayInGuizhouActiveIndex}.data`);
+      const data = [{
+        name:'水稻',
+        value:"3258",
+        unit:'吨'
+      },{
+        name:'玉米',
+        value:"1352",
+        unit:'吨'
+      },{
+        name:'大豆',
+        value:"968",
+        unit:'吨'
+      },{
+        name:'高粱',
+        value:"563",
+        unit:'吨'
+      },{
+        name:'土豆',
+        value:"4252",
+        unit:'吨'
+      },{
+        name:'油料',
+        value:"1087",
+        unit:'吨'
+      }]
+      // return _.get(this.aDayInGuizhou, `${this.aDayInGuizhouActiveIndex}.data`);
+      return data
     },
     selectedCityData() {
       return _.get(this.mapData, `${this.selectedCity}`);
@@ -311,6 +337,9 @@ export default {
       this.aDayInGuizhouActiveIndex = index;
     },
     getLeftTopChartConfig() {
+      console.log(Object.assign({}, this.$util.ringChartDefaultConfig, {
+        data: this.production2019,
+      }))
       return Object.assign({}, this.$util.ringChartDefaultConfig, {
         data: this.production2019,
       });

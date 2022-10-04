@@ -194,10 +194,8 @@ import ScrollBar from '@/components/ScrollBar';
 import constants from '@/util/constants';
 import Carousel from '@/components/Carousel';
 import MyVrPlayer from '@/components/MyVrPlayer';
-// import FlvVideoPlayer from '@/components/FlvVideoPlayer';
 export default {
   name: "FarmStockMonitor",
-  // components: { FarmAsideNav, VideoPlayer, ScrollBar, Carousel, FlvVideoPlayer },
   components: { FarmAsideNav, VideoPlayer, ScrollBar, Carousel, MyVrPlayer },
   data() {
     return {
@@ -235,10 +233,10 @@ export default {
       let {id} = this.$route.params;
       await this.getFarmById(id);
       let res = await this.$service.getLandList({farmId: id, pageSize: 10000});
-      if (res && res.code === 0) {
-        this.landList = res.data.list;
+      // if (res && res.code === 0) {
+        // this.landList = res.data.list;
         this.getCameraListByLandCode();
-      }
+      // }
     } catch (err) {
       console.log(err);
     }
@@ -283,6 +281,7 @@ export default {
         this.activeCameraList = [];
         let {id} = this.$route.params;
         let landCode = _.get(this.landList, `${this.activeIndex}.code`);
+        console.log(id, landCode)
         let res = await this.$service.getCameraListByFarmId({farmId: id, landCode, pageSize: 100});
         if (res && res.code === 0) {
           let _cameraList = _.get(res.data, "list") || [];

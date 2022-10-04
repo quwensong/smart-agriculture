@@ -1,4 +1,4 @@
-require('./mock')
+// require('./mock')
 
 import Vue from 'vue';
 import dataV from '@jiaminghi/data-view';

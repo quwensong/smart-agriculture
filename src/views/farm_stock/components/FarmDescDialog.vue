@@ -202,7 +202,7 @@ export default {
           height: calc(100% - 1px);
           text-indent: 2em;
           font-size: 0.12rem;
-          line-height: 0.18rem;
+          line-height: 0.3rem;
           color: #9fa8b8;
           overflow-y: scroll;
         }

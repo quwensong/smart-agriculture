@@ -18,57 +18,68 @@ const labelList1 = [
   {
     name: '粮食农田',
     prop: 'farmLandArea',
-    color: colors[1]
+    color: colors[1],
+    value:546
   },
   {
     name: '果树林地',
     prop: 'fruitLandArea',
-    color: colors[2]
+    color: colors[2],
+    value:231
   },
   {
     name: '育苗大棚',
     prop: 'plantGreenhouseArea',
-    color: colors[3]
+    color: colors[3],
+    value:872
   },
   {
     name: '蔬菜大棚',
     prop: 'vegetableGreenhouseArea',
-    color: colors[4]
+    color: colors[4],
+    value:902
   },
   {
     name: '仓储建筑',
     prop: 'warehouseArea',
-    color: colors[5]
+    color: colors[5],
+    value:172
   },
   {
     name: '生态观光',
     prop: 'ecologicalLandArea',
-    color: colors[6]
+    color: colors[6],
+    value:871
   },
   {
     name: '河流湖泊',
     prop: 'riverArea',
-    color: colors[7]
+    color: colors[7],
+    value:877
   },
   {
     name: '水库坑塘',
     prop: 'reservoirArea',
-    color: colors[8]
+    color: colors[8],
+    value:444
   },
   {
     name: '沼泽滩涂',
     prop: 'moorArea',
-    color: colors[9]
+    color: colors[9],
+    value:657
   },
   {
     name: '人工鱼塘',
     prop: 'fishpondArea',
-    color: colors[10]
+    color: colors[10],
+    value:352
   },
   {
     name: '宅基地',
     prop: 'homesteadArea',
-    color: colors[11]
+    color: colors[11],
+    value:325
   }
 ];
 
@@ -77,25 +88,28 @@ const labelList2 = [
   {
     name: '经营人员',
     prop: 'manageMemberNumber',
-    stack: 'b',
+    
+    value:98,
     color: colors[1]
   },
   {
     name: '种植人员',
+    value:89,
     prop: 'plantMemberNumber',
-    stack: 'b',
     color: colors[2]
   },
   {
     name: '贫困户',
     prop: 'poorMemberNumber',
     stack: 'c',
+    value:123,
     color: colors[3]
   },
   {
     name: '有证书人员',
     prop: 'certificatedMemberNumber',
     stack: 'd',
+    value:88,
     color: colors[4]
   }
 ];
@@ -105,79 +119,92 @@ const labelList3 = [
   {
     name: '风力',
     prop: 'windMachineryNumber',
-    stack: 'a',
+    
+    value:'329',
     color: colors[1]
   },
   {
     name: '太阳能',
     prop: 'solarMachineryNumber',
-    stack: 'a',
+    
+    value:543,
     color: colors[2]
   },
   {
     name: '汽油',
     prop: 'gasolineMachineryNumber',
-    stack: 'a',
+    
+    value:'43',
     color: colors[3]
   },
   {
     name: '柴油',
     prop: 'dieselMachineryNumber',
-    stack: 'a',
+    
+    value:'452',
     color: colors[4]
   },
   {
     name: '电力',
     prop: 'electricMachineryNumber',
-    stack: 'a',
+    
+    value:'763',
     color: colors[5]
   },
   {
     name: '水利',
     prop: 'hydraulicMachineryNumber',
-    stack: 'a',
+    
+    value:'572',
     color: colors[12]
   },
   {
     name: '煤炭',
     prop: 'coalMachineryNumber',
-    stack: 'a',
+    
+    value:'336',
     color: colors[6]
   },
   {
     name: '其他动力类型',
     prop: 'otherPowerMachineryNumber',
-    stack: 'a',
+    
+    value:'522',
     color: colors[7]
   },
   {
     name: '运输',
     prop: 'transportMachineryNumber',
-    stack: 'b',
+    
+    value:'242',
     color: colors[8]
   },
   {
     name: '加工',
     prop: 'processMachineryNumber',
-    stack: 'b',
+    
+    value:'123',
     color: colors[9]
   },
   {
     name: '种植',
     prop: 'plantingMachineryNumber',
-    stack: 'b',
+    
+    value:'221',
     color: colors[10]
   },
   {
     name: '其他',
     prop: 'otherUseMachineryNumber',
-    stack: 'b',
+    
+    value:'241',
     color: colors[11]
   },
   {
     name: '水产养殖',
     prop: 'aquicultureMachineryNumber',
-    stack: 'b',
+    
+    value:'61',
     color: colors[0]
   }
 ];
@@ -187,55 +214,64 @@ const labelList4 = [
   {
     name: '水稻',
     prop: 'riceYield',
-    stack: 'a',
+    
+    value:'3462',
     color: colors[1]
   },
   {
     name: '大豆',
     prop: 'soyaYield',
-    stack: 'a',
+    
+    value:'3512',
     color: colors[2]
   },
   {
     name: '玉米',
     prop: 'cornYield',
-    stack: 'a',
+    
+    value:'332',
     color: colors[3]
   },
   {
     name: '其他粮食',
     prop: 'otherGrainYield',
-    stack: 'a',
+    
+    value:'1122',
     color: colors[4]
   },
   {
     name: '其他作物',
     prop: 'otherCropYield',
-    stack: 'a',
+    
+    value:'112',
     color: colors[5]
   },
   {
     name: '淡水鱼类',
     prop: 'freshWaterFishYield',
-    stack: 'b',
+    
+    value:'876',
     color: colors[6]
   },
   {
     name: '淡水甲壳类',
     prop: 'freshWaterShellYield',
-    stack: 'b',
+    
+    value:'443',
     color: colors[7]
   },
   {
     name: '淡水其他',
     prop: 'freshWaterOtherYield',
-    stack: 'b',
+    
+    value:'4332',
     color: colors[8]
   },
   {
     name: '其他水产',
     prop: 'otherWaterYield',
-    stack: 'b',
+    
+    value:'7334',
     color: colors[9]
   }
 ];
@@ -245,37 +281,43 @@ const labelList5 = [
   {
     name: '无机肥',
     prop: 'inorganicFertilizerAmount',
-    stack: 'a',
+    
+    value:'421',
     color: colors[1]
   },
   {
     name: '有机肥',
     prop: 'organicFertilizerAmount',
-    stack: 'a',
+    
+    value:'233',
     color: colors[2]
   },
   {
     name: '农药',
     prop: 'pesticideAmount',
-    stack: 'a',
+    
+    value:'87',
     color: colors[3]
   },
   {
     name: '饲料',
     prop: 'forageAmount',
-    stack: 'a',
+    
+    value:'985',
     color: colors[4]
   },
   {
     name: '鱼药',
     prop: 'fisheryMedicinesAmount',
-    stack: 'a',
+    
+    value:'214',
     color: colors[5]
   },
   {
     name: '其他',
     prop: 'otherAmount',
-    stack: 'a',
+    
+    value:'654',
     color: colors[6]
   }
 ];
@@ -285,19 +327,22 @@ const labelList6 = [
   {
     name: '项目拨款',
     prop: 'appropriationAmount',
-    stack: 'b',
+    
+    value:'362',
     color: colors[1]
   },
   {
     name: '补贴金额',
     prop: 'subsidyAmount',
-    stack: 'b',
+    
+    value:'322',
     color: colors[2]
   },
   {
     name: '农业社会化服务',
     prop: 'revenueAmount',
-    stack: 'b',
+    
+    value:'77',
     color: colors[3]
   }
 ];
@@ -307,25 +352,25 @@ const labelList7 = [
   {
     name: '枪机摄像头',
     prop: 'boxCameraNumber',
-    stack: 'a',
+    value:'425',
     color: colors[1]
   },
   {
     name: '球机摄像头',
     prop: 'domeCameraNumber',
-    stack: 'b',
+    value:'44',
     color: colors[2]
   },
   {
     name: '传感器',
     prop: 'sensorNumber',
-    stack: 'c',
+    value:'1265',
     color: colors[3]
   },
   {
     name: 'NVR',
     prop: 'nvrNumber',
-    stack: 'd',
+    value:'745',
     color: colors[4]
   }
 ];

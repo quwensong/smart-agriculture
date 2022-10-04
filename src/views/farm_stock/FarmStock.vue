@@ -10,7 +10,7 @@
         <div class="charts-container">
           <div class="charts-header">
             总面积
-            <i class="my-font">{{landData.totalArea}}</i>
+            <i class="my-font">{{landData.totalArea || 238}}</i>
             <span>公顷</span>
           </div>
           <div class="charts-wrapper no-sub-title">
@@ -98,7 +98,7 @@
             <div class="farm-count-info">
               <div class="label">企业</div>
               <div class="value">
-                <span class="my-font gradient-num1">{{farmCount}}</span>
+                <span class="my-font gradient-num1">{{farmCount || 30}}</span>
                 <i>&nbsp;个</i>
               </div>
             </div>
@@ -110,7 +110,7 @@
             <div class="people-count-info">
               <div class="label">从业人员</div>
               <div class="value">
-                <span class="my-font gradient-num1">{{MemberData.totalNumber}}</span>
+                <span class="my-font gradient-num1">{{MemberData.totalNumber || 126}}</span>
                 <i>&nbsp;个</i>
               </div>
             </div>
@@ -192,14 +192,14 @@
               <div class="info-item">
                 <div class="title">农机具数量</div>
                 <div class="value">
-                  <span class="my-font">{{MachineryData.totalNumber}}</span>
+                  <span class="my-font">{{MachineryData.totalNumber || 574}}</span>
                   <i>&nbsp;辆/台</i>
                 </div>
               </div>
               <div class="info-item">
                 <div class="title">农民累积培训</div>
                 <div class="value">
-                  <span class="my-font">{{MemberData.trainingDays}}</span>
+                  <span class="my-font">{{MemberData.trainingDays || 251}}</span>
                   <i>&nbsp;天</i>
                 </div>
               </div>
@@ -208,7 +208,7 @@
               <div class="info-item">
                 <div class="title">证书总量</div>
                 <div class="value">
-                  <span class="my-font">{{MemberData.certificatedMemberNumber}}</span>
+                  <span class="my-font">{{MemberData.certificatedMemberNumber || 109}}</span>
                   <i>&nbsp;个</i>
                 </div>
               </div>
@@ -227,15 +227,15 @@
               <div class="info-item">
                 <div class="title">政府项目累计</div>
                 <div class="value">
-                  <span class="my-font">{{operatingData.governmentProjectNumber}}</span>
+                  <span class="my-font">{{operatingData.governmentProjectNumber || 56}}</span>
                   <i>&nbsp;个</i>
                 </div>
               </div>
               <div class="info-item">
                 <div class="title">累计金额</div>
                 <div class="value">
-                  <span class="my-font">{{operatingData.appropriationAmount | unitConvert('num')}}</span>
-                  <i>&nbsp;{{operatingData.appropriationAmount | unitConvert('unit')}}</i>
+                  <span class="my-font">{{operatingData.appropriationAmount || 213 | unitConvert('num')}}</span>
+                  <i>&nbsp;{{operatingData.appropriationAmount || 128 | unitConvert('unit')}}</i>
                 </div>
               </div>
             </div>
@@ -243,15 +243,15 @@
               <div class="info-item">
                 <div class="title">农业补贴累计</div>
                 <div class="value">
-                  <span class="my-font">{{operatingData.subsidyProjectNumber}}</span>
+                  <span class="my-font">{{operatingData.subsidyProjectNumber || 525}}</span>
                   <i>&nbsp;次</i>
                 </div>
               </div>
               <div class="info-item">
                 <div class="title">累计金额</div>
                 <div class="value">
-                  <span class="my-font">{{operatingData.subsidyAmount | unitConvert('num')}}</span>
-                  <i>&nbsp;{{operatingData.subsidyAmount | unitConvert('unit')}}</i>
+                  <span class="my-font">{{operatingData.subsidyAmount || 643 | unitConvert('num')}}</span>
+                  <i>&nbsp;{{operatingData.subsidyAmount || 98 | unitConvert('unit')}}</i>
                 </div>
               </div>
             </div>
@@ -268,8 +268,8 @@
               <div class="info-item">
                 <div class="title">累计服务营收</div>
                 <div class="value">
-                  <span class="my-font">{{operatingData.revenueAmount | unitConvert('num')}}</span>
-                  <i>&nbsp;{{operatingData.revenueAmount | unitConvert('unit')}}</i>
+                  <span class="my-font">{{operatingData.revenueAmount || 341 | unitConvert('num')}}</span>
+                  <i>&nbsp;{{operatingData.revenueAmount || 53 | unitConvert('unit')}}</i>
                 </div>
               </div>
               <div class="info-item"></div>
@@ -364,7 +364,7 @@ export default {
     getWarningList() {
       this.$service.getWarningList({ pageSize: 1000 })
         .then((res) => {
-          let warningList = res.data.list || [];
+          let warningList = res?.data?.list || [];
           this.warningList = warningList;
           // this.warningList = _.chain(warningList)
           //                     .reject((warning) => {
@@ -472,6 +472,9 @@ export default {
       this.initAreaChart(areaData);
       this.initProductChart(prodData);
     },
+    random(min, max) {
+      return Math.floor(Math.random() * (max - min)) + min;
+    },
     initWaterAreaProdChart() {
       let waterAreaData = label.waterLabelList.map((label) => {
         return {
@@ -491,6 +494,12 @@ export default {
       this.initWaterProductChart(waterProdData);
     },
     async initAreaChart(inputData) {
+      inputData = inputData.map((data)=>{
+        return {
+          ...data,
+          value:this.random(60,110)
+        }
+      })
       try {
         await this.$nextTick();
         let areaChartDom = document.querySelector('#area-chart');
@@ -508,6 +517,7 @@ export default {
       }
     },
     async initProductChart(inputData) {
+      inputData.seriesData = [this.random(60,110),this.random(60,110),this.random(60,110),this.random(60,110),this.random(60,110)]
       try {
         await this.$nextTick();
         let productChartDom = document.querySelector('#production-chart');
@@ -525,6 +535,12 @@ export default {
       }
     },
     async initWaterAreaChart(inputData) {
+      inputData = inputData.map((item)=>{
+        return {
+          ...item,
+          value:this.random(30,100)
+        }
+      })
       try {
         await this.$nextTick();
         let waterAreaChartDom = document.querySelector('#water-area-chart');
@@ -542,6 +558,7 @@ export default {
       }
     },
     async initWaterProductChart(inputData) {
+      inputData.seriesData = [this.random(30,100),this.random(30,100),this.random(30,100),this.random(30,100)]
       try {
         await this.$nextTick();
         let waterProductChartDom = document.querySelector('#water-production-chart');
@@ -565,7 +582,39 @@ export default {
            value: _.get(inputData, `0.${label.prop}`)
          };
        });
-      return Object.assign({}, this.$util.ringChartDefaultConfig, { data });
+       const leftChartData = {
+          "color": [
+              "#FFDF12",
+              "#4DFBFF",
+              "#059eff",
+              "#9258E6",
+              "#ECC94C"
+          ],
+          "digitalFlopStyle": {
+              "fontSize": 16
+          },
+          "radius": "70%",
+          "activeRadius": "80%",
+          "lineWidth": 16,
+          "data": [
+              {
+                  "name": "耕地",
+                  "color": "#FFDF12",
+                  "value": 1014.12
+              },
+              {
+                  "name": "水产",
+                  "color": "#4DFBFF",
+                  "value": 68.09
+              },
+              {
+                  "name": "其他",
+                  "color": "#059eff",
+                  "value": 1239.58
+              }
+          ]
+      }
+      return leftChartData;
     },
     getDeviceConfig(inputData) {
       let data = label.deviceLabelList.map((label) => {

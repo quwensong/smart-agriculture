@@ -2079,3 +2079,402 @@ export const getFarmListData = {
   "message": "成功"
 }
 
+export const corporateMapData = {
+  "timestamp": 1664584960195,
+  "status": "SUCCESS",
+  "code": 0,
+  "data":
+  [
+    {
+        "name": "空气温度",
+        "active": true,
+        "metric": "dqwd",
+        "orderDps":[{
+          
+          value:'3'
+        },{
+          
+          value:'12'
+        },{
+          
+          value:'42'
+        },{
+          
+          value:'11'
+        },{
+          
+          value:'65'
+        },{
+          
+          value:'89'
+        },{
+          
+          value:'5'
+        },{
+          
+          value:'24'
+        },{
+          
+          value:'109'
+        },{
+          
+          value:'0'
+        },{
+          
+          value:'0'
+        },{
+          
+          value:'43'
+        },{
+          
+          value:'22'
+        }],
+        "color": "#297CEB"
+    },
+    {
+        "name": "空气湿度",
+        "active": true,
+        "metric": "dqsd",
+        "min": 0.2,
+        "orderDps":[{
+          value:'232'
+        },{
+          
+          value:'12'
+        },{
+          
+          value:'45'
+        },{
+          
+          value:'2'
+        },{
+          
+          value:'98'
+        },{
+          
+          value:'11'
+        },{
+          
+          value:'55'
+        },{
+          
+          value:'61'
+        },{
+          
+          value:'32'
+        },{
+          
+          value:'11'
+        },{
+          
+          value:'12'
+        },{
+          
+          value:'8'
+        },{
+          
+          value:'0'
+        }],
+        "unit": "%",
+        "color": "#7C82FB"
+    },
+    {
+        "name": "光照度",
+        "active": true,
+        "metric": "gzd",
+        "unit": "klux",
+        "orderDps":[{
+          
+          value:'43'
+        },{
+          
+          value:'2'
+        },{
+          
+          value:'55'
+        },{
+          
+          value:'15'
+        },{
+          
+          value:'87'
+        },{
+          
+          value:'46'
+        },{
+          
+          value:'24'
+        },{
+          
+          value:'90'
+        },{
+          
+          value:'9'
+        },{
+          
+          value:'76'
+        },{
+          
+          value:'35'
+        },{
+          
+          value:'78'
+        },{
+          
+          value:'112'
+        }],
+        "color": "#71CACF"
+    },
+    {
+        "name": "光照总辐射",
+        "active": true,
+        "orderDps":[{
+          
+          value:'5'
+        },{
+          
+          value:'78'
+        },{
+          
+          value:'43'
+        },{
+          
+          value:'12'
+        },{
+          
+          value:'43'
+        },{
+          
+          value:'66'
+        },{
+          
+          value:'91'
+        },{
+          
+          value:'12'
+        },{
+          
+          value:'43'
+        },{
+          
+          value:'55'
+        },{
+          
+          value:'29'
+        },{
+          
+          value:'56'
+        },{
+          
+          value:'24'
+        }],
+        "metric": "gzzfs",
+        "unit": "",
+        "color": "#23A6F5"
+    },
+    {
+        "name": "降雨量",
+        "active": true,
+        "orderDps":[{
+          
+          value:'878'
+        },{
+          
+          value:'443'
+        },{
+          
+          value:'124'
+        },{
+          
+          value:'876'
+        },{
+          
+          value:'456'
+        },{
+          
+          value:'1086'
+        },{
+          
+          value:'432'
+        },{
+          
+          value:'234'
+        },{
+          
+          value:'675'
+        },{
+          
+          value:'342'
+        },{
+          
+          value:'189'
+        },{
+          
+          value:'14'
+        },{
+          
+          value:'312'
+        }],
+        "metric": "jyl",
+        "unit": "mm",
+        "color": "#98BD72"
+    },
+    {
+        "name": "气压",
+        "active": true,
+        "metric": "qy",
+        "min": 800,
+        "orderDps":[{
+          
+          value:'890'
+        },{
+          
+          value:'1343'
+        },{
+          
+          value:'999'
+        },{
+          
+          value:'896'
+        },{
+          
+          value:'1398'
+        },{
+          
+          value:'1623'
+        },{
+          
+          value:'1098'
+        },{
+          
+          value:'1099'
+        },{
+          
+          value:'889'
+        },{
+          
+          value:'864'
+        },{
+          
+          value:'996'
+        },{
+          
+          value:'789'
+        },{
+          
+          value:'1311'
+        }],
+        "unit": "kpa",
+        "color": "#E2CA7F"
+    },
+    {
+        "name": "风速",
+        "active": true,
+        "orderDps":[{
+          
+          value:'43'
+        },{
+          
+          value:'23'
+        },{
+          
+          value:'14'
+        },{
+          
+          value:'56'
+        },{
+          
+          value:'68'
+        },{
+          
+          value:'45'
+        },{
+          
+          value:'34'
+        },{
+          
+          value:'99'
+        },{
+          
+          value:'98'
+        },{
+          
+          value:'67'
+        },{
+          
+          value:'32'
+        },{
+          
+          value:'20'
+        },{
+          
+          value:'133'
+        }],
+        "metric": "fs",
+        "unit": "m/s",
+        "color": "#5FD2DB"
+    },
+    {
+      "name": "风速",
+      "active": true,
+      "orderDps":[{
+        
+        value:'43'
+      },{
+        
+        value:'23'
+      },{
+        
+        value:'14'
+      },{
+        
+        value:'56'
+      },{
+        
+        value:'68'
+      },{
+        
+        value:'45'
+      },{
+        
+        value:'34'
+      },{
+        
+        value:'99'
+      },{
+        
+        value:'98'
+      },{
+        
+        value:'67'
+      },{
+        
+        value:'32'
+      },{
+        
+        value:'20'
+      },{
+        
+        value:'133'
+      }],
+      "metric": "fx",
+      "unit": "m/s",
+      "color": "#5FD2DB"
+  }
+  ]
+}
+
+
+
+export const getGoodsListByFarmIdData = {
+  "timestamp": 1664584960195,
+  "status": "SUCCESS",
+  "code": 0,
+  "data":{
+    'list':{
+      name:'哈哈哈',
+      title:9999
+    }
+  }
+}
+

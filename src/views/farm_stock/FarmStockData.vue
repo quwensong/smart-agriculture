@@ -800,6 +800,8 @@ export default {
       };
     },
     getLandOption(data) {
+      console.log("🚀 ~ file: FarmStockData.vue ~ line 803 ~ getLandOption ~ data", data)
+      
       let obj = _.groupBy(data, "year");
       let years = Object.keys(obj);
       let yearData = years.map((year) => {
@@ -810,7 +812,7 @@ export default {
       let series = this.labelList1.map((label) => {
         return {
           name: label.name,
-          data: yearData.map((item) => _.get(item, label.prop) || 0),
+          data:  [label.value || 0],
           type: "bar",
           barWidth: "5%",
           itemStyle: {
@@ -835,7 +837,7 @@ export default {
       let series = this.labelList2.map((label) => {
         return {
           name: label.name,
-          data: yearData.map((item) => _.get(item, label.prop) || 0),
+          data: [label.value],
           type: "bar",
           stack: label.stack,
           barWidth: "5%",
@@ -861,7 +863,7 @@ export default {
       let series = this.labelList3.map((label) => {
         return {
           name: label.name,
-          data: yearData.map((item) => _.get(item, label.prop) || 0),
+          data:  [label.value || 0],
           type: "bar",
           stack: label.stack,
           barWidth: "5%",
@@ -875,6 +877,8 @@ export default {
           },
         };
       });
+      console.log("🚀 ~ file: FarmStockData.vue ~ line 854 ~ series ~ series", series)
+
       return this.mixOption({ year: years, series, unit: "台" });
     },
     getInputOption(data) {
@@ -887,7 +891,7 @@ export default {
       let series = this.labelList5.map((label) => {
         return {
           name: label.name,
-          data: yearData.map((item) => _.get(item, label.prop) || 0),
+          data:  [label.value || 0],
           type: "bar",
           stack: label.stack,
           barWidth: "5%",
@@ -913,10 +917,7 @@ export default {
       let series = this.labelList6.map((label) => {
         return {
           name: label.name,
-          data: yearData.map((item) => {
-            let value = _.get(item, label.prop) || 0;
-            return this.$util.unitConvert(value).num;
-          }),
+          data:  [label.value || 0],
           type: "bar",
           stack: label.stack,
           barWidth: "5%",
@@ -942,7 +943,7 @@ export default {
       let series = this.labelList4.map((label) => {
         return {
           name: label.name,
-          data: yearData.map((item) => _.get(item, label.prop) || 0),
+          data:  [label.value || 0],
           type: "bar",
           stack: label.stack,
           barWidth: "5%",
@@ -968,7 +969,7 @@ export default {
       let series = this.labelList7.map((label) => {
         return {
           name: label.name,
-          data: yearData.map((item) => _.get(item, label.prop) || 0),
+          data:  [label.value || 0],
           type: "bar",
           stack: label.stack,
           barWidth: "5%",
@@ -979,7 +980,7 @@ export default {
                 return label.color;
               },
             },
-          },
+          }
         };
       });
       return this.mixOption({ year: years, series, unit: "个" });

@@ -63,13 +63,35 @@ export default {
       deviceType: {
         1: '枪机摄像头',
         2: '球机摄像头',
-        4: 'NVR摄像头',
+        3: 'NVR摄像头',
         0: '传感器'
       }
     };
   },
   methods: {
+    randArray(len,options) {
+      return Array.from({length:len}, v=> options);
+    },
     serializeAlertData(warningList) {
+      warningList = new Array(35).fill(0).map((item,index)=>{
+        const randNum =  Math.floor(Math.random() * 3);
+        return {
+        name:`传感器${Math.floor(Math.random() * 30) + 1}`,
+        warnType:index % 2 == 0 ? 'DEVICE_ERROR':'MODEL_WARN',
+        farmName:index % 2 != 0 ?'梅河口优选农产品种植基地':'贵州大学农业实验基地',
+        warnTime:'2020-12-09',
+        deviceType:randNum,
+        description:[{
+          metric:'解决',
+          up:90, 
+          value:12,
+          low:23,
+          min:11,
+          max:12
+        }]
+        }
+      })  
+    
       let list =warningList.map((item) => {
         let res = [];
         let description = '';
@@ -116,7 +138,7 @@ export default {
                         <span class="name-desc">
                           <span class="farm-name">${item.farmName}</span>：<span class="desc">${description}</span>
                         </span>
-                        <span class="date">${this.$util.dateFormat('mm-dd HH:MM:SS', new Date(item.warnTime))}</span>
+                        <span class="date">${this.$util.dateFormat('mm-dd HH:MM:SS', new Date())}</span>
                      </span>`;
         res.push(content);
         return res;

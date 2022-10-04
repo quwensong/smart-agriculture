@@ -220,7 +220,6 @@ const actions = {
   async getAllDictList({commit}) {
     try {
       let res = await service.getAllDictList();
-      console.log("🚀 ~", res)
       if (res && res.code === 0) {
         let dict = _.groupBy(res.data, (item) => item.keyType);
         commit('setDictList', {dictList: res.data});

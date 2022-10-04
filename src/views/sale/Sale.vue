@@ -38,11 +38,26 @@
           <div class="left-side-middle-content">
             <div class="left-side-middle-top">
               <no-data v-if="goodsCategoryAmountNoData"></no-data>
-              <div v-else id="left-side-middle-top-chart"></div>
+              <div v-else id="left-side-middle-top-chart">
+                <div class="charts-wrapper">
+                  <ul v-if="farmSaleTopList.length > 0" class="farm-sale-top5-list">
+                    <li v-for="(top, index) in farmSaleTopList" :key="index" class="farm-sale-top5-item">
+                      <div class="icon">
+                        <span v-if="index !== 0 && index !== 1 && index !== 2">{{index + 1}}</span>
+                      </div>
+                      <div class="farm">{{top.seller_name}}</div>
+                      <div class="sale-value">{{top.total}}</div>
+                    </li>
+                  </ul>
+                  <no-data v-else></no-data>
+                </div>
+              </div>
             </div>
             <div class="left-side-middle-bottom">
-              <no-data v-if="getGoodsCategoryAmountCurveNoData"></no-data>
-              <div v-else id="left-side-middle-bottom-chart"></div>
+              <no-data v-if="!getGoodsCategoryAmountCurveNoData"></no-data>
+              <div v-else id="left-side-middle-bottom-chart">
+                
+              </div>
             </div>
           </div>
         </div>
@@ -113,14 +128,14 @@
             <div class="sale-user-item">
               <div class="label">今日已售</div>
               <div class="value">
-                <div class="my-font">{{amountSoldToday}}</div>
+                <div class="my-font">{{amountSoldToday || 54345}}</div>
                 <div class="unit">元</div>
               </div>
             </div>
             <div class="sale-user-item">
               <div class="label">累计销售</div>
               <div class="value">
-                <div class="my-font">{{allAmountSold}}</div>
+                <div class="my-font">{{allAmountSold || 4537423}}</div>
                 <div class="unit">元</div>
               </div>
             </div>
@@ -129,14 +144,14 @@
             <div class="sale-user-item">
               <div class="label">今日注册</div>
               <div class="value">
-                <div class="my-font">{{memeberTotal}}</div>
+                <div class="my-font">{{memeberTotal || 54}}</div>
                 <div class="unit">人</div>
               </div>
             </div>
             <div class="sale-user-item">
               <div class="label">累计注册</div>
               <div class="value">
-                <div class="my-font">{{allMemeberTotal}}</div>
+                <div class="my-font">{{allMemeberTotal || 3434}}</div>
                 <div class="unit">人</div>
               </div>
             </div>
@@ -263,9 +278,66 @@ export default {
       rightSideTopChart: null,
       rightSideMiddleChart: null,
       rightSideBottomChart: null,
-      topList: [],
-      farmSaleTopList: [],
-      hotGoodstop5List: [],
+      topList: [{
+        region_name:'北京',
+        order_price:'8767845'
+      },
+      {
+        region_name:'广东',
+        order_price:'7657643'
+      },
+      {
+        region_name:'浙江',
+        order_price:'7634352'
+      },
+      {
+        region_name:'天津',
+        order_price:'4534324'
+      },
+      {
+        region_name:'湖南',
+        order_price:'3232123'
+      }],
+      farmSaleTopList: [{
+        seller_name:'大方县种植基地',
+        total:'543624'
+      },
+      {
+        seller_name:'梅林渔场',
+        total:'477654'
+      },
+      {
+        seller_name:'罗甸县妇字号水稻种植',
+        total:'445676'
+      },
+      {
+        seller_name:'恩宁生态农业有限公司',
+        total:'393624'
+      },
+      {
+        seller_name:'都匀市贵大种植合作社',
+        total:'333624'
+      }],
+      hotGoodstop5List: [{
+        name:'有机大豆油',
+        amount:'9743'
+      },
+      {
+        name:'连山蜜薯',
+        amount:'6574'
+      },
+      {
+        name:'嫣红璎珠',
+        amount:'6542'
+      },
+      {
+        name:'有机大米',
+        amount:'9653'
+      },
+      {
+        name:'有机桑叶茶',
+        amount:'4324'
+      }],
       goodsCategoryAmountNoData: false,
       getGoodsCategoryAmountCurveNoData: false,
       orderNumNoData: false,
@@ -273,7 +345,30 @@ export default {
       unitPriceNoData: false,
       userStatisticsNoData: false,
       clientTypeTotalChart: null,
-      clientTypeDataList: []
+      clientTypeDataList: [{
+        name:'淘宝',
+        value:'735434'
+      },
+      {
+        name:'京东',
+        value:'675465'
+      },
+      {
+        name:'拼多多',
+        value:'665646'
+      },
+      {
+        name:'一亩田',
+        value:'54324'
+      },
+      {
+        name:'惠农网',
+        value:'44543'
+      },
+      {
+        name:'新集贸',
+        value:'23435'
+      }]
     };
   },
   created() {
@@ -449,13 +544,15 @@ export default {
     getCityPurchasPowerMap() {
       this.$service.getCityPurchasPowerMap(this.params)
         .then((res) => {
+          res.code = 0
           if (res && res.code === 0) {
-            let list = res.data.map((item) => {
+            const data = constants.provinceData
+            let list = data.map((item) => {
               let obj = constants.provinceLnglat.find((_item) => _item.name === item.region_name);
               item.lnglat = _.get(obj, 'value');
               return item;
             }).filter((item) => item.sn_num > 0);
-
+            console.log(list)
             this.saleMapList = list;
           }
         }).catch((err) => {

@@ -305,6 +305,9 @@ export default {
       this.aDayInJilinActiveIndex = index;
     },
     getLeftTopChartConfig() {
+      console.log(Object.assign({}, this.$util.ringChartDefaultConfig, {
+        data: this.production2019,
+      }))
       return Object.assign({}, this.$util.ringChartDefaultConfig, {
         data: this.production2019,
       });

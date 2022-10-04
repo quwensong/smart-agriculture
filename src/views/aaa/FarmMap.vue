@@ -48,7 +48,7 @@ export default {
         this.map = new window.AMap.Map("farm-map", {
           // 设置地图的显示样式
           mapStyle: "amap://styles/93f622ecbb8e8a4ed4f6b40967ef3857",
-          center: [126.55, 43.83],
+          center: [106.63, 26.65],
           zoom: 6,
           layers:[
             new AMap.TileLayer(),
@@ -224,7 +224,7 @@ export default {
       }
     },
     resetPosition() {
-      this.map.setCenter([126.55, 43.83]);
+      this.map.setCenter([106.63, 26.65]);
       this.map.setZoom(6);
     },
     zoomOut() {

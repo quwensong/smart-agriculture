@@ -28,6 +28,8 @@
 import echarts from 'echarts';
 import _ from 'lodash';
 import constants from '@/util/constants';
+import { corporateMapData } from '@/data/index'
+
 export default {
   name: 'TrendChartTwo',
   props: {
@@ -106,7 +108,9 @@ export default {
         this.setTrendLabelList();
         let activeDay = this.dayList.find((item) => item.active);
         let days = _.get(activeDay, 'value');
-        let res = await this.$service.getSensor({deviceName: this.deviceName, days});
+
+        // let res = await this.$service.getSensor({deviceName: this.deviceName, days});
+        let res = corporateMapData
         if (res && res.code === 0) {
           this.trendDataList = res.data;
           if (this.trendDataList.length > 0) {
@@ -156,6 +160,7 @@ export default {
     },
     getOption() {
       let trendDataList = this.trendLabelList.filter((item) => item.active);
+      console.log("🚀 ~ file: TrendChartTwo.vue ~ line 163 ~ getOption ~ trendDataList", trendDataList)
       let colors = trendDataList.map((item) => item.color);
       let yAxis = trendDataList.map((item, index) => {
         return {
@@ -183,7 +188,7 @@ export default {
 
       let trendOne = _.get(this.trendDataList, `0.orderDps`) || [];
       let xAxisData = trendOne.map((item) => item.timestamp).map((item) => {
-        return this.$util.dateFormat('YY-mm-dd HH:MM:SS', new Date(item))
+        return this.$util.dateFormat('YY-mm-dd HH:MM:SS', new Date())
       });
       let series = trendDataList.map((item, index) => {
         let trend = this.trendDataList.find((trend) => trend.metric === item.metric);
