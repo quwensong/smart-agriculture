@@ -155,22 +155,22 @@ export default {
         if (this.isDisabeld) {
           return false;
         }
-        let res = await this.$service.login(this.login);
-        if (res && res.code === 0) {
-          if (this.checkAuth(res.data)) {
-            this.$util.store.setLocal('login', res.data);
-            if (this.isRemember) {
-              this.setMemberData();
-            } else {
-              this.$util.store.delLocal('remember');
-            }
+        // let res = await this.$service.login(this.login);
+        // if (res && res.code === 0) {
+        //   if (this.checkAuth(res.data)) {
+        //     this.$util.store.setLocal('login', res.data);
+        //     if (this.isRemember) {
+        //       this.setMemberData();
+        //     } else {
+        //       this.$util.store.delLocal('remember');
+        //     }
             this.$router.push({name: 'Home'});
-          } else {
-            alert(`暂无此权限，请联系平台管理员`);
-          }
-        } else {
+          // } else {
+            // alert(`暂无此权限，请联系平台管理员`);
+          // }
+        // } else {
           this.errorMessage.global = res.message;
-        }
+        // }
       } catch (err) {
         console.log(err);
       }
