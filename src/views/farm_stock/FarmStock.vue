@@ -47,7 +47,7 @@
               <div class="charts-container">
                 <div class="charts-header">
                   本年度总产量
-                  <i class="my-font">{{plantData.totalYield | toFixed2}}</i>
+                  <i class="my-font">{{382893 | toFixed2}}</i>
                   <span>吨</span>
                 </div>
                 <div class="charts-wrapper">
@@ -73,7 +73,7 @@
               <div class="charts-container">
                 <div class="charts-header">
                   本年度总产量
-                  <i class="my-font">{{plantData.totalWaterYield | toFixed2}}</i>
+                  <i class="my-font">{{382893 | toFixed2}}</i>
                   <span>吨</span>
                 </div>
                 <div class="charts-wrapper">

@@ -42,9 +42,9 @@
                 <div class="charts-wrapper">
                   <ul v-if="farmSaleTopList.length > 0" class="farm-sale-top5-list">
                     <li v-for="(top, index) in farmSaleTopList" :key="index" class="farm-sale-top5-item">
-                      <div class="icon">
+                      <!-- <div class="icon">
                         <span v-if="index !== 0 && index !== 1 && index !== 2">{{index + 1}}</span>
-                      </div>
+                      </div> -->
                       <div class="farm">{{top.seller_name}}</div>
                       <div class="sale-value">{{top.total}}</div>
                     </li>
@@ -218,18 +218,56 @@
           </div>
           <div class="right-side-top-content">
             <no-data v-if="orderNumNoData"></no-data>
-            <div v-else id="right-side-top-chart"></div>
+            <div v-else id="right-side-top-chart">
+              <div class="charts-wrapper">
+                  <ul v-if="farmSaleTopList.length > 0" class="farm-sale-top5-list">
+                    <li v-for="(top, index) in shopList" :key="index" class="farm-sale-top5-item">
+                      <!-- <div class="icon">
+                        <span v-if="index !== 0 && index !== 1 && index !== 2">{{index + 1}}</span>
+                      </div> -->
+                      <div class="farm">{{top.name}}</div>
+                      <div class="sale-value">{{top.value}}</div>
+                    </li>
+                  </ul>
+                  <no-data v-else></no-data>
+                </div>
+            </div>
           </div>
         </div>
         <div class="right-side-bottom">
           <div class="title-one big">
             <h5>
-              <i class="point"></i> 客单价(次)
+              <i class="point"></i> 客单价排行榜(次)
             </h5>
           </div>
           <div class="right-side-bottom-content">
             <no-data v-if="unitPriceNoData"></no-data>
-            <div v-else id="right-side-bottom-chart"></div>
+            <div v-else id="right-side-bottom-chart">
+              <div class="left-side-bottom-content">
+            <div v-if="consumertop5List.length > 0" class="hot-goods-top5-list">
+              <li v-for="(goods, index) in consumertop5List" :key="index" class="hot-goods-top5-item">
+                <span class="hot-goods-top5-icon">
+                  <svg-icon v-if="index === 0" icon-class="hot_goods_icon1"></svg-icon>
+                  <svg-icon v-if="index === 1" icon-class="hot_goods_icon2"></svg-icon>
+                  <svg-icon v-if="index === 2" icon-class="hot_goods_icon3"></svg-icon>
+                  <svg-icon v-if="index === 3" icon-class="hot_goods_icon4"></svg-icon>
+                  <svg-icon v-if="index === 4" icon-class="hot_goods_icon5"></svg-icon>
+                </span>
+                <div class="content-info">
+                  <div class="text">
+                    <div class="name text-overflow" :title="goods.name">{{goods.name}}</div>
+                    <div class="value">{{goods.amount}}</div>
+                  </div>
+                  <div class="progress">
+                    <div :style="progressInnerStyle(goods)" class="inner"></div>
+                  </div>
+                </div>
+              </li>
+            </div>
+            <no-data v-else></no-data>
+            <!-- <div id="left-side-bottom-chart"></div> -->
+          </div>
+            </div>
           </div>
         </div>
         <div class="right-side-middle">
@@ -240,7 +278,20 @@
           </div>
           <div class="right-side-middle-content">
             <no-data v-if="userStatisticsNoData"></no-data>
-            <div v-else id="right-side-middle-chart"></div>
+            <div v-else id="right-side-middle-chart">
+              <div class="charts-wrapper">
+                  <ul v-if="farmSaleTopList.length > 0" class="farm-sale-top5-list">
+                    <li v-for="(top, index) in peopleList" :key="index" class="farm-sale-top5-item">
+                      <!-- <div class="icon">
+                        <span v-if="index !== 0 && index !== 1 && index !== 2">{{index + 1}}</span>
+                      </div> -->
+                      <div class="farm">{{top.name}}</div>
+                      <div class="sale-value">{{top.value}}</div>
+                    </li>
+                  </ul>
+                  <no-data v-else></no-data>
+                </div>
+            </div>
           </div>
         </div>
       </div>
@@ -318,6 +369,67 @@ export default {
         seller_name:'都匀市贵大种植合作社',
         total:'333624'
       }],
+      shopList: [{
+        name:'淘宝',
+        value:'665643'
+      },
+      {
+        name:'京东',
+        value:'623123'
+      },
+      {
+        name:'拼多多',
+        value:'545639'
+      },
+      {
+        name:'一亩田',
+        value:'54632'
+      },
+      {
+        name:'惠农网',
+        value:'44352'
+      },
+      {
+        name:'新集贸',
+        value:'12343'
+      }],
+      peopleList: [{
+        name:'贵阳市',
+        value:'389'
+      },
+      {
+        name:'遵义市',
+        value:'564'
+      },
+      {
+        name:'铜仁市',
+        value:'123'
+      },
+      {
+        name:'毕节市',
+        value:'432'
+      },
+      {
+        name:'安顺市',
+        value:'103'
+      },
+      {
+        name:'六盘水市',
+        value:'98'
+      },
+      {
+        name:'黔南布依族苗族自治州',
+        value:'412'
+      },
+      {
+        name:'黔西南布依族苗族自治州',
+        value:'221'
+      },
+      {
+        name:'黔东南苗族侗族自治州',
+        value:'89'
+      }
+      ],
       hotGoodstop5List: [{
         name:'有机大豆油',
         amount:'9743'
@@ -337,6 +449,26 @@ export default {
       {
         name:'有机桑叶茶',
         amount:'4324'
+      }],
+      consumertop5List: [{
+        name:'山东',
+        amount:'5643'
+      },
+      {
+        name:'浙江',
+        amount:'5549'
+      },
+      {
+        name:'上海',
+        amount:'4539'
+      },
+      {
+        name:'北京',
+        amount:'3422'
+      },
+      {
+        name:'安徽',
+        amount:'2339'
       }],
       goodsCategoryAmountNoData: false,
       getGoodsCategoryAmountCurveNoData: false,
